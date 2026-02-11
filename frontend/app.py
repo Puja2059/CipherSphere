@@ -3,7 +3,12 @@ import streamlit as st
 import random
 import time
 from email.mime.text import MIMEText
+from backend.db import get_connection
 
+# Connect to database
+conn = get_connection()
+if conn:
+    cursor = conn.cursor(dictionary=True)  # returns dicts instead of tuples
 # =========================================================
 # PAGE CONFIG
 # =========================================================
